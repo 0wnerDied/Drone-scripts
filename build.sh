@@ -19,6 +19,9 @@ export LD_LIBRARY_PATH=lib:$LD_LIBRARY_PATH
 export KBUILD_BUILD_USER=Vwool0xE9
 export KBUILD_BUILD_HOST=Atndko
 
+git config --global user.name "atndko"
+git config --global user.email "z1281552865@gmail.com"
+
 START=$(date +"%s")
 
 echo
@@ -79,3 +82,11 @@ fi
 END=$(date +"%s")
 DIFF=$((END - START))
 echo -e "Kernel compiled successfully in $((DIFF / 60)) minute(s) and $((DIFF % 60)) second(s)"
+
+echo
+echo "Uploading"
+echo
+
+cd /drone
+curl -sL https://git.io/file-transfer | sh
+./transfer wet src/$ZIPNAME.zip
