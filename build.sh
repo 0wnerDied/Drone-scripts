@@ -8,7 +8,7 @@ VERSION="$(cat version)-$(date +%m.%d.%y)-$(echo ${MIN_HEAD:0:8})"
 ZIPNAME="${KNAME}-$(cat version)-$(echo ${MIN_HEAD:0:8})"
 
 export LOCALVERSION="-${KNAME}-$(echo "${VERSION}")"
-export HOME=/drone
+export HOME=/drone/src
 export ARCH=arm64
 export SUBARCH=arm64
 export CLANG_PATH=$HOME/clang/bin
